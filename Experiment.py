@@ -127,7 +127,9 @@ def gpu_compare():
     squared = (vectors - query_vector) ** 2
     sum_result = torch.sum(squared, dim=1)
     euclidean_dist = torch.sqrt(sum_result)
-    sort = torch.sort(euclidean_dist)
+    sorted_res, indices = torch.sort(euclidean_dist)
+
+    #now query style_ids to with the first 20 indices to get 20 most similar styles
 
     # print(result)
     print((t.time()-start))
